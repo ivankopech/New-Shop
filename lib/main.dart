@@ -6,6 +6,7 @@ import '/firebase_options.dart';
 import './screens/auth.dart';
 import './screens/home.dart';
 import './screens/splash.dart';
+import './screens/user_info_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,6 +41,9 @@ class App extends StatelessWidget {
           return const AuthScreen();
         },
       ),
+      routes: {
+        UserInfoScreen.routeName: (ctx) => UserInfoScreen(),
+      },
     );
   }
 }
