@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../screens/user_info_screen.dart';
+import '../screens/items.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -25,10 +26,26 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.person_outline),
+            leading: Icon(Icons.account_circle),
             title: Text('My data'),
             onTap: () {
-              Navigator.of(context).pushNamed(UserInfoScreen.routeName);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const UserInfoScreen(),
+                ),
+              );
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.adb_outlined),
+            title: Text('My items'),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const ItemsScreen(),
+                ),
+              );
             },
           ),
         ],
