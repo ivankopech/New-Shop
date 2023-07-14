@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+
+import '../widgets/image_picker.dart';
 
 class AddItemScreen extends StatefulWidget {
   const AddItemScreen({super.key});
@@ -15,6 +19,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
   var _enteredDestinationAddress = '';
   var _enteredHeight = '';
   var _enteredWeight = '';
+  File? _selectedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +120,14 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 },
                 onSaved: (value) {
                   _enteredHeight = value!;
+                },
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ImageInput(
+                onPickImage: (image) {
+                  _selectedImage = image;
                 },
               ),
             ],
